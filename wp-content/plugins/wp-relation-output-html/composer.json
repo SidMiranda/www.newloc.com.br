@@ -1,0 +1,10 @@
+{
+    "autoload": {
+        "psr-4": {
+            "WpRloutHtml\\": "app/"
+        }
+    },
+    "require": {
+        "aws/aws-sdk-php": "^3.173"
+    }
+}

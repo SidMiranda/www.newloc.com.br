@@ -1,0 +1,54 @@
+#pin-santander{
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 60px;
+    padding: 0 15px;
+    background-color: #5f0104;
+    color: #fff;
+    transition: all 3ms ease-in-out;
+    .logo-pin-santander{
+        width: 35px;
+        height: auto;
+        fill: #fff;
+        *{
+            fill: #fff;
+        }
+    }
+    .texto-informativo{
+        width: 200px;
+        font-size: 10px;
+        font-family: $fonte-mplusrounded-regular;
+    }
+    @media screen and(min-width: $mobile) {
+        top: 100px;
+        right: 0;
+        z-index: 100;
+        padding: 5px 10px;
+        width: 250px;
+        border-radius: 10px 0 0 10px;
+        .logo-pin-santander{
+            width: 45px;
+        }
+        .texto-informativo{
+            font-size: 12px;
+        }
+    }
+    @media screen and(min-width: $full-hd){
+        top: 150px;
+    }
+    &.pin-light{
+        background-color: #fff;
+        color: #5f0104;
+        .logo-pin-santander{
+            fill: #5f0104;
+            *{
+                fill: #5f0104;
+            }
+        }
+    }
+}

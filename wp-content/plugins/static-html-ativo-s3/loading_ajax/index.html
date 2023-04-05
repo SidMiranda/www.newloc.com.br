@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Gerando HTML</title>
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+
+		<h1 class="text-center">Estamos Gerando o HTML</h1>
+		<center>
+			<br>
+			<br>
+			<img src="https://cdn.dribbble.com/users/479985/screenshots/1719391/loader_seq.gif" class="img-responsive" alt="Carregando">
+			<h3>Aguarde em média 2 minutos...</h3>
+		</center>
+
+		<script>
+
+			function verifica_html(){
+				setTimeout(function(){
+
+					var hash_verify = '2d5b15500405c980601bee483f3a826f';
+
+					var data = null;
+
+					var xhr = new XMLHttpRequest();
+					xhr.withCredentials = true;
+
+					xhr.addEventListener("readystatechange", function () {
+						if (this.readyState === 4) {
+							var split_reponde = this.responseText.split(hash_verify);
+							if(split_reponde[1]){
+								console.log('igual ainda');
+								verifica_html();
+							}else{
+								window.location.reload();
+							}
+						}
+					});
+
+					xhr.open("GET", window.location);
+					xhr.setRequestHeader("cache-control", "no-cache");
+
+					xhr.send(data);
+
+				},1000);
+
+			}
+			verifica_html();
+
+		</script>
+	</body>
+	</html>

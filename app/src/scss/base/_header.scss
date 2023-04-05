@@ -1,0 +1,141 @@
+$fonte-padrao: "Kanit", sans-serif;
+$fonte-secundaria: "Roboto", sans-serif;
+$fonte-mplusrounded-regular: MPlusRoundedRegular;
+$fonte-mplusrounded-medium: MPlusRoundedMedium;
+$fonte-mplusrounded-bold: MPlusRoundedBold;
+$fonte-mplusrounded-extrabold: MPlusRoundedExtraBold;
+$fonte-epilogue-bold: EpilogueBold;
+$fonte-epilogue-regular: EpilogueRegular;
+
+$fonte-acme: "Acme";
+
+$header: 70px;
+$headerDesk: 90px;
+$mobile: 1024px;
+$full-hd: 1600px;
+
+html {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	line-height: 100%;
+	font-size: 100%;
+	-webkit-text-size-adjust: 100%;
+	font-variant-ligatures: none;
+	-webkit-font-variant-ligatures: none;
+	text-rendering: optimizeLegibility;
+	-moz-osx-font-smoothing: grayscale;
+	font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
+	text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+	font-family: $fonte-padrao;
+
+	a {
+		text-decoration: none;
+	}
+	body.hidden {
+		overflow: hidden;
+	}
+
+	&::-webkit-scrollbar {
+		width: 8px;
+		height: 8px;
+		background: #666;
+	}
+	&::-webkit-scrollbar-button {
+		width: 6px;
+		height: 6px;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: #e1e1e1;
+		border: 0px solid #ffffff;
+		border-radius: 6px;
+	}
+	&::-webkit-scrollbar-thumb:hover {
+		background: #ffffff;
+	}
+	&::-webkit-scrollbar-thumb:active {
+		background: #808080;
+	}
+	&::-webkit-scrollbar-track {
+		background: #666666;
+		border: 0px none #ffffff;
+		border-radius: 8px;
+	}
+	&::-webkit-scrollbar-track:hover {
+		background: #666666;
+	}
+	&::-webkit-scrollbar-track:active {
+		background: #333333;
+	}
+	&::-webkit-scrollbar-corner {
+		background: rgba(0, 0, 0, 0);
+	}
+
+	::selection {
+		background: #465998;
+		color: #fff;
+	}
+}
+@media screen and (max-width: $mobile) {
+	.hidden-xs {
+		display: none !important;
+	}
+}
+@media screen and (min-width: $mobile) {
+	.hidden-lg {
+		display: none !important;
+	}
+}
+
+@font-face {
+	font-family: MPlusRoundedRegular;
+	src: url("fonts/MPLUSRounded1c-Regular.woff2") format("woff2");
+}
+@font-face {
+	font-family: MPlusRoundedMedium;
+	src: url("fonts/MPLUSRounded1c-Medium.woff2") format("woff2");
+}
+@font-face {
+	font-family: MPlusRoundedBold;
+	src: url("fonts/MPLUSRounded1c-Bold.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: MPlusRoundedExtraBold;
+	src: url("fonts/MPLUSRounded1c-ExtraBold.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: EpilogueBold;
+	src: url("fonts/Epilogue-Bold.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: EpilogueRegular;
+	src: url("fonts/Epilogue-Regular.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: fontAwesomeB;
+	src: url("fonts/fa-brands-400.woff2");
+}
+@font-face {
+	font-family: fontAwesomeR;
+	src: url("fonts/fa-regular-400.woff2");
+}
+@font-face {
+	font-family: fontAwesomeS;
+	src: url("fonts/fa-solid-900.woff2");
+}
+
+@font-face {
+	font-family: KonTikiAlohaJF;
+	src: url("fonts/KonTikiAlohaJF.woff2");
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	body {
+		overflow-x: hidden;
+	}
+}

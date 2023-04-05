@@ -1,0 +1,6 @@
+.svg{
+    opacity: 0;
+    &.on{
+        opacity: 1;
+    }
+}

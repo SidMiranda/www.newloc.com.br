@@ -1,0 +1,52 @@
+section#clubeO2{
+    position: fixed;
+    top: 50vh;
+    left: -47px;
+    width: 139px;
+    height: 44px;
+    z-index: 20;
+    transform: translateY(-50%) rotate(-90deg);
+    a{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 139px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        border-radius: 0 0 5px 5px;
+        box-shadow: 0 0 15px rgba(0,0,0,.4);
+        transition: all 0.3s ease-in-out;
+        img, svg{
+            height: 20px;
+            width: auto;
+            transition: all 0.3s ease-in-out;
+            &:first-child{
+                margin-right: 5px;
+                height: 15px;
+            }
+            &.svg{
+                color: #000;
+                *{
+                    fill: #000;
+                }
+            }
+        }
+        &:hover{
+            background: #111111;
+            img, svg{
+                &.svg{
+                    color: #FFF;
+                    *{
+                        fill: #FFF;
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width: $mobile){
+        display: none;
+    }
+}

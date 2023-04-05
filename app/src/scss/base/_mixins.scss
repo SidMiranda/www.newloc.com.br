@@ -1,0 +1,154 @@
+@mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+@mixin font-padrao($size: false, $weight: false, $colour: false, $text-transform: false, $letter-spacing: false, $line-height: false, $text-align: false) {
+    font-family: 'Lato', sans-serif;
+    @if $size { font-size: $size; }
+    @if $weight { font-weight: $weight; }
+    @if $colour { color: $colour; }
+    @if $text-transform { text-transform: $text-transform; }
+    @if $letter-spacing { letter-spacing: $letter-spacing; }
+    @if $line-height { line-height: $line-height; }
+    @if $text-align { text-align: $text-align; }
+}
+
+@mixin texto-padrao($size: false, $weight: false, $colour: false) {
+    font-family: Lato;
+    @if $size { 
+        font-size: $size; 
+    } @else{
+        font-size: 25px;
+    }
+    @if $weight { 
+        font-weight: $weight; 
+    } @else{
+        font-weight: 400; 
+    }
+    @if $colour { 
+        color: $colour; 
+    } @else{
+        color: #ffffff; 
+    }
+    span{
+        font-weight: 900; 
+    }
+}
+
+@mixin tituloModal($size: false, $weight: false){
+    font-family: 'Muli';
+    @if $size { 
+        font-size: $size; 
+    } @else{
+        font-size: 32px;
+    }
+    @if $weight { 
+        font-weight: $weight; 
+    } @else{
+        font-weight: 900; 
+    }
+    text-align: center;
+    line-height: 30px;
+    text-transform: uppercase;
+    color: #fff;
+    strong{
+        font-weight: 900;
+    }
+
+}
+
+
+@mixin tituloCardMobile($text-align: false, $colour: false){
+    font-family: 'Lato', sans-serif;
+    @if $text-align { 
+        text-align: $text-align; 
+    } @else{
+        text-align: center;
+    }
+    @if $colour { 
+        color: $colour; 
+    } @else{
+        color: #ffffff;
+    }
+    font-size: 25px;
+    font-weight: 400; 
+    line-height: 27px;
+    text-transform: uppercase;
+    span{
+        color: #b68c48;
+        font-weight: 900; 
+    }
+    strong{
+        font-weight: 900;
+        color: #333333;
+    }
+
+}
+
+
+@mixin tituloMobile($size: false, $weight: false){
+    font-family: 'Muli';
+    @if $size { 
+        font-size: $size; 
+    } @else{
+        font-size: 32px;
+    }
+    @if $weight { 
+        font-weight: $weight; 
+    } @else{
+        font-weight: 900; 
+    }
+    line-height: 30px;
+    text-transform: uppercase;
+    color: #999999;
+    margin: 0 0 70px;                    
+    position: relative;
+    span{
+        color: #c5c4c4;
+    }
+    &::before,
+    &::after{
+        content: "";
+        width: 60px;                        
+        height: 1px;
+        background: #999999;
+        position: absolute;
+        left: 0;
+        top: 50%;
+    }
+    &::after{
+        right: 0;
+        left: auto;
+    }
+}
+
+@mixin lato-black($size: false, $weight: false, $colour: false, $text-transform: false) {
+    font-family: 'Lato', sans-serif;
+    @if $text-transform{
+        text-transform: $text-transform;
+    } @else{
+        text-transform: uppercase;
+    }
+    @if $size { 
+        font-size: $size; 
+    } @else{
+        font-size: 15px;
+    }
+    @if $weight { 
+        font-weight: $weight; 
+    } @else{
+        font-weight: 900; 
+    }
+    @if $colour { 
+        color: $colour; 
+    } @else{
+        color: #ffffff; 
+    }
+    span{
+        color: #bd9654;
+    }
+    strong{
+        font-weight: 900;
+    }
+}

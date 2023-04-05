@@ -1,0 +1,459 @@
+<?php
+/**
+ * @package WP Static HTML Output
+ *
+ * Copyright (c) 2011 Leon Stafford
+ */
+
+parse_str($this->staticExportSettings,$v_array);
+
+$settings = esc_html($this->staticExportSettings);
+
+if ($settings == '') {
+    $settings = 'no existing settings found';
+}
+?>
+<style>
+.validacao_s3 {
+    display: none;
+}
+</style>
+
+<script>
+    var settings = '<?php echo $settings; ?>';
+
+    jQuery(document).ready(function($){
+        if (Notification.permission !== "granted") {
+            Notification.requestPermission();
+        }
+
+
+        function notifyMe() {
+          if (!Notification) {
+            alert('All exports are complete!.'); 
+            return;
+        }
+
+        if (Notification.permission !== "granted") {
+            Notification.requestPermission();
+        } else {
+            var notification = new Notification('WP Static HTML Export', {
+              icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Wordpress_Shiny_Icon.svg/768px-Wordpress_Shiny_Icon.svg.png',
+              body: "Exports have finished!",
+          });
+
+            notification.onclick = function () {
+              parent.focus();
+              window.focus();
+              this.close();
+          };
+      }
+  }
+
+  var currentArchive = 1;
+
+  function processArchives() {
+    $('.hiddenActionField').val('generate_archive');
+
+    var ambiente_selected = $('#nomeAmbiente_generate').val();
+
+    var archives = $('select#nomeAmbiente option[value="'+ambiente_selected+'"]:selected').closest('.options-form');
+
+    numberOfArchives = archives.length;
+
+    if (currentArchive <= numberOfArchives) {
+
+        data = $(archives[currentArchive - 1]).serialize();
+
+        $.ajax({
+            url: ajaxurl,
+            data: data,
+            dataType: 'html',
+            method: 'POST',
+            success: function(serverResponse) {
+                if(serverResponse==0){
+                    alert('Aguarde 5min antes de atualizar novamente!');
+                    $('#progress').hide();
+                    window.location.reload();
+                }else{
+
+                  if(ambiente_selected=='master'){
+
+                    var form = new FormData();
+                    form.append("s3Key", archives.find('#s3Key').val());
+                    form.append("s3Secret", archives.find('#s3Secret').val());
+                    form.append("s3Region", archives.find('#s3Region').val());
+                    form.append("s3Bucket", archives.find('#s3Bucket').val());
+
+                    // console.log(archives.find('#s3Key').val());
+                    // console.log(archives.find('#s3Secret').val());
+                    // console.log(archives.find('#s3Region').val());
+                    // console.log(archives.find('#s3Bucket').val());
+
+                    var settings = {
+                      "async": true,
+                      "crossDomain": true,
+                      "url": $("#url_ajax_s3").val(),
+                      "method": "POST",
+                      "headers": {
+                        "cache-control": "no-cache"
+                    },
+                    "processData": false,
+                    "contentType": false,
+                    "mimeType": "multipart/form-data",
+                    "data": form
+                }
+
+                $.ajax(settings).done(function (response) {
+                  console.log(response);
+              });
+
+            }
+
+            $('#results').append(serverResponse);
+            currentArchive += 1;
+            processArchives();
+        }
+    }
+});
+    } else {
+     currentArchive = 0;
+            // all archives processed
+            $('#progress').hide();
+            notifyMe();
+        }
+    }
+
+    function saveOptions() {
+        // toggles between saving and generating archives
+        // TODO: 'save' would be better name here....
+        $('.hiddenActionField').val('generate');
+        archives = $('.options-form');
+        numberOfArchives = archives.length;
+        var newSettings = $(".options-form").serialize();
+        // console.log(newSettings);
+        // stick json encoded settings into hidden field within form(s)
+        $(".hiddenSettingsField").val(newSettings);
+        // submit first form which encapsulates all others 
+        $(archives[0]).submit();
+    }
+
+    $('#generateArchiveButton').click(function() {
+        $('#progress').show();
+        processArchives();
+        $('#results').html('');
+    });
+
+    $('.wrap').on('click', '.removeTargetButton', function(event) {
+        event.preventDefault();
+
+        if ($('.options-form').length === 1) {
+            alert("Sorry, got to keep at least one settings block around. But, you can delete the values if you like");
+        } else {
+            $(event.target).closest('.options-form').remove();
+        }
+    });
+
+    $('.wrap').on('click', '.saveSettingsButton', function(event) {
+        // TODO: needed prevention?
+        event.preventDefault();
+        $('#progress').show();
+        saveOptions();
+        $('#results').html('');
+    });
+
+    $('.wrap').on('click', '.addAnotherTargetButton', function(event) {
+        event.preventDefault();
+        if($('.options-form').length<2){
+            $('.options-form:last').clone().insertAfter('.options-form:last');
+        }else{
+            alert('Desculpe, mas só pode ser configurado no maximo 2 ambientes');
+        }
+    });
+
+    //  load existing settings
+    if (settings != 'no existing settings found') {
+        archives = settings.split('nomeAmbiente=');
+        // remove crufty first element
+        archives.shift();
+
+        // first run, will populate only form on page
+        var targetExportSettingsBlock = $('.options-form')[0];
+
+        // iterate each saved settings chunk and create forms for them
+        $.each(archives, function(index, value) {
+            renderedExportSettingsBlocks = $('.options-form').length;
+            targetExportSettingsBlock = $('.options-form:last');
+            archive = 'nomeAmbiente=' + value;
+            archive = archive.substring(0, archive.indexOf('&amp;staticExportSettings='));
+
+            settingsBlock = JSON.parse('{"' + decodeURI(archive).replace(/\n/g, ",").replace(/\r/g, ",").replace(/"/g, '\\"').replace(/&amp;/g, '","').replace(/=/g,'":"') + '"}');
+
+            $(targetExportSettingsBlock).find('#baseUrl').first().val(decodeURIComponent(settingsBlock.baseUrl));
+            $(targetExportSettingsBlock).find('#baseUrlUploadS301').first().val(decodeURIComponent(settingsBlock.baseUrlUploadS301));
+            $(targetExportSettingsBlock).find('#baseUrlUploadS302').first().val(decodeURIComponent(settingsBlock.baseUrlUploadS302));
+            $(targetExportSettingsBlock).find('#baseUrlUploadS303').first().val(decodeURIComponent(settingsBlock.baseUrlUploadS303));
+
+            additionalUrls = settingsBlock.additionalUrls.split(',');
+            newAdditionalUrls = '';
+
+            $.each(additionalUrls, function(index, value) {
+               if (value != '') {
+                   newAdditionalUrls += decodeURIComponent(value) + "\n"; 
+               }
+           });
+
+
+            $(targetExportSettingsBlock).find('#nomeAmbiente').val(settingsBlock.nomeAmbiente);
+            
+            $(targetExportSettingsBlock).find('#additionalUrls').val(newAdditionalUrls);
+            $(targetExportSettingsBlock).find('#cleanMeta')[0].checked = settingsBlock.cleanMeta;
+            $(targetExportSettingsBlock).find('#retainStaticFiles')[0].checked = settingsBlock.retainStaticFiles;
+            // $(targetExportSettingsBlock).find('#sendViaFTP')[0].checked = settingsBlock.sendViaFTP;
+            $(targetExportSettingsBlock).find('#ftpServer').first().val(decodeURIComponent(settingsBlock.ftpServer));
+            // $(targetExportSettingsBlock).find('#ftpUsername').first().val(decodeURIComponent(settingsBlock.ftpUsername));
+            // $(targetExportSettingsBlock).find('#ftpPassword').first().val(decodeURIComponent(settingsBlock.ftpPassword));
+            // $(targetExportSettingsBlock).find('#ftpRemotePath').first().val(decodeURIComponent(settingsBlock.ftpRemotePath));
+            // $(targetExportSettingsBlock).find('#sendViaS3')[0].checked = settingsBlock.sendViaS3;
+            $(targetExportSettingsBlock).find('#s3Key').first().val(decodeURIComponent(settingsBlock.s3Key));
+            $(targetExportSettingsBlock).find('#s3Secret').first().val(decodeURIComponent(settingsBlock.s3Secret));
+            $(targetExportSettingsBlock).find('#s3Region').first().val(decodeURIComponent(settingsBlock.s3Region));
+            $(targetExportSettingsBlock).find('#s3Bucket').first().val(decodeURIComponent(settingsBlock.s3Bucket));
+            // $(targetExportSettingsBlock).find('#sendViaDropbox')[0].checked = settingsBlock.sendViaDropbox;
+            // $(targetExportSettingsBlock).find('#dropboxAccessToken').first().val(decodeURIComponent(settingsBlock.dropboxAccessToken));
+            // $(targetExportSettingsBlock).find('#dropboxFolder').first().val(decodeURIComponent(settingsBlock.dropboxFolder));
+
+
+            // if there are more to come, clone and set target
+            if (index < (archives.length -1)) {
+                $('.options-form:last').clone().insertAfter('.options-form:last');
+                targetExportSettingsBlock =  $('.options-form:last');
+                $(targetExportSettingsBlock).find('#baseUrl').first().val('');
+                $(targetExportSettingsBlock).find('#nomeAmbiente').first().val('');
+                $(targetExportSettingsBlock).find('#baseUrlUploadS301').first().val('');
+                $(targetExportSettingsBlock).find('#baseUrlUploadS302').first().val('');
+                $(targetExportSettingsBlock).find('#baseUrlUploadS303').first().val('');
+                $(targetExportSettingsBlock).find('#additionalUrls').val('');
+                $(targetExportSettingsBlock).find('#cleanMeta').first().prop('checked', false);
+                $(targetExportSettingsBlock).find('#retainStaticFiles').first().prop('checked', false);
+                // $(targetExportSettingsBlock).find('#sendViaFTP').first().prop('checked', false);
+                $(targetExportSettingsBlock).find('#ftpServer').val('');
+                // $(targetExportSettingsBlock).find('#ftpUsername').val('');
+                // $(targetExportSettingsBlock).find('#ftpPassword').val('');
+                // $(targetExportSettingsBlock).find('#ftpRemotePath').val('');
+                // $(targetExportSettingsBlock).find('#sendViaS3').first().prop('checked', false);
+                $(targetExportSettingsBlock).find('#s3Key').val('');
+                $(targetExportSettingsBlock).find('#s3Secret').val('');
+                $(targetExportSettingsBlock).find('#s3Region').val('');
+                $(targetExportSettingsBlock).find('#s3Bucket').val('');
+                // $(targetExportSettingsBlock).find('#sendViaDropbox').first().prop('checked', false);
+                // $(targetExportSettingsBlock).find('#dropboxAccessToken').val('');
+                // $(targetExportSettingsBlock).find('#dropboxFolder').val('');
+            }
+
+            $('.options-form').each(function(){
+
+                if($(this).find('select[name="nomeAmbiente"]').val()=='master'){
+                    $(this).closest('.options-form').find('.validacao_s3').show();
+                }
+            });
+
+            $('select[name="nomeAmbiente"]').change(function(){
+                if($(this).val()=='master'){
+                    $(this).closest('.options-form').find('.validacao_s3').show();
+                }else{
+                    $(this).closest('.options-form').find('.validacao_s3').hide();
+                }
+            });
+
+        });
+}
+});
+</script>
+
+<div class="wrap">
+
+    <h2 class="title_init_static_html"><?php echo __('WP Static HTML Output - Configure & Run', 'static-html-ativo-s3');?></h2>
+
+    <div class="">
+        <div class="metabox-holder">
+            <div class="meta-box-sortables ui-sortable">
+
+                <form id="general-options" class="options-form options-form-static-html" method="post" action="">
+
+                    <div class="postbox">
+
+                      <h3>
+                        <span><?php echo __('Configuração de Ambiente', 'static-html-ativo-s3');?></span>
+                    </h3>
+
+                    <div class="inside">
+
+                       <p>
+                        <strong><label for="nomeAmbiente"><?php echo __('Nome do ambiente', 'static-html-ativo-s3');?></label></strong>
+                        <p>
+                            <i>Seleciona o ambiente que deseja configurar</i>
+                        </p>
+
+                        <?php $ambientes_config = array('production'=>'Produção', 'master'=>'Validação');  ?>
+                        <select id="nomeAmbiente" name="nomeAmbiente">
+                            <?php foreach ($ambientes_config as $ambiente => $n_ambiente) : ?>
+                                <option <?php if(esc_attr($this->nomeAmbiente)==$ambiente){ echo 'selected'; } ?> value="<?php echo $ambiente; ?>" ><?php echo $n_ambiente; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </p>
+
+                    <p>
+                      <strong><label for="baseUrl"><?php echo __('URL DO HTML', 'static-html-ativo-s3');?></label></strong>
+                      <p>
+                        <i>Todas as tags de links como (a,form) serão substituidos por essa URL cadastrada</i>
+                    </p> 
+                    <input type="text" id="baseUrl" name="baseUrl" value="<?php echo esc_attr($this->baseUrl) ?>" size="50" />
+
+
+                </p>
+
+                <p>
+                    <br>
+                    <strong>
+                        <label for="baseUrlUploadS301"><?php echo __('SUBSTITUIR URLs', 'static-html-ativo-s3');?></label>
+                    </strong>
+                      <p>
+                        <i>Todas as tags de links como (a,form,img) serão substituidos por <strong>URL DO HTML</strong></i>
+                    </p>
+
+                    <input name="baseUrlUploadS301" class="regular-text" id="baseUrlUploadS301" value="<?php echo esc_attr($this->baseUrlUploadS301) ?>" placeholder="<?php echo __('URL para substituir pela URL DO HTML', 'static-html-output-plugin');?>" />
+                    <br>
+                      <input name="baseUrlUploadS302" class="regular-text" id="baseUrlUploadS302" value="<?php echo esc_attr($this->baseUrlUploadS302) ?>" placeholder="<?php echo __('URL para substituir pela URL DO HTML', 'static-html-output-plugin');?>" />
+                    <br>
+                      <input name="baseUrlUploadS303" class="regular-text" id="baseUrlUploadS303" value="<?php echo esc_attr($this->baseUrlUploadS303) ?>" placeholder="<?php echo __('URL para substituir pela URL DO HTML', 'static-html-output-plugin');?>" />
+                    <br>
+                </p>
+
+                <div class="validacao_s3">
+                    <fieldset>
+                        <h4><?php echo __('Configuração S3 - Validação', 'static-html-output-plugin');?></h4>
+                    </fieldset>
+
+                    <input name="s3Key" class="regular-text" id="s3Key" value="<?php echo esc_attr($this->s3Key) ?>" placeholder="<?php echo __('S3 Key', 'static-html-output-plugin');?>" />
+                    <span class="description">ie, AKIAIOSFODNN7EXAMPLE</span>
+                    <br>
+
+
+                    <input name="s3Secret" class="regular-text" id="s3Secret" value="<?php echo esc_attr($this->s3Secret) ?>" placeholder="<?php echo __('S3 Secret', 'static-html-output-plugin');?>" />
+                    <span class="description">ie, wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY</span>
+                    <br>
+
+                    <select name="s3Region" id="s3Region">
+                        <option value="us-east-1">US East (N. Virginia)</option>
+                        <option value="us-east-2">US East (Ohio)</option>
+                        <option value="us-west-1">US West (N. California)</option>
+                        <option value="us-west-2">US West (Oregon)</option>
+                        <option value="ca-central-1">Canada (Central)</option>
+                        <option value="ap-south-1">Asia Pacific (Mumbai)</option>
+                        <option value="ap-northeast-2">Asia Pacific (Seoul)</option>
+                        <option value="ap-southeast-1">Asia Pacific (Singapore)</option>
+                        <option value="ap-southeast-2">Asia Pacific (Sydney)</option>
+                        <option value="ap-northeast-1">Asia Pacific (Tokyo)</option>
+                        <option value="eu-central-1">EU (Frankfurt)</option>
+                        <option value="eu-west-1">EU (Ireland)</option>
+                        <option value="eu-west-2">EU (London)</option>
+                        <option value="sa-east-1">South America (São Paulo)</option>
+                    </select>
+                    <span class="description">choose the region your bucket is in</span>
+                    <br>
+
+                    <input name="s3Bucket" class="regular-text" id="s3Bucket" value="<?php echo esc_attr($this->s3Bucket) ?>" placeholder="<?php echo __('S3 Bucket name', 'static-html-output-plugin');?>" />
+                    <span class="description">ie, my-static-site</span>
+                    <br>
+
+                </div>
+
+                <br>
+
+
+
+                <p>
+                  <strong><label for="additionalUrls"><?php echo __('Urls Adicionais', 'static-html-ativo-s3');?></label></strong>
+                  <p>
+                    <i>Para alguns temas, alguns arquivos podem não ser detectados como parte do processo de exportação. Insira alguns desses arquivos aqui, um por linha. 
+
+                    Digite-os como o URL completo, incluindo o URL do seu site WordPress, ou seja:</i>
+                    <pre>http://localhost/wp-content/themes/twentyseventeen/banana.jpg
+                    http://172.17.0.3/my_pricelist.pdf</pre>
+                </p>
+                <textarea class="widefat" name="additionalUrls" id="additionalUrls" rows="5" cols="10"><?php echo esc_html($this->additionalUrls) ?></textarea>
+            </p>
+
+            <fieldset>
+                <label for="cleanMeta">
+                    <input name="cleanMeta" id="cleanMeta" value="1" type="checkbox" checked />
+                    <span><?php echo __('Descarte as meta tags do WordPress desnecessárias, ou seja, &lt;meta name = "generator" content = "WordPress ...', 'static-html-ativo-s3');?></span>
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <label for="retainStaticFiles">
+                    <input name="retainStaticFiles" id="retainStaticFiles" value="1" type="checkbox" checked />
+                    <span><?php echo __('Manter arquivos estáticos gerados no servidor', 'static-html-ativo-s3');?></span>
+                </label>
+            </fieldset>
+
+            <br>
+
+            <input name="ftpServer" class="regular-text" id="ftpServer" value="<?php echo esc_attr($this->ftpServer) ?>" placeholder="<?php echo __('Descreva a alteração', 'static-html-ativo-s3');?>" />
+            <span class="description"> Descreva a alteração - REPOSITORIO BITBUCKET</span>
+            <br>
+            <br>
+
+
+            <p class="submit">
+                <?php wp_nonce_field($this->onceAction) ?>
+                <input id="formActionHiddenField" class="hiddenActionField" type="hidden" name="action" value="generate" />
+                <input name="staticExportSettings" class="hiddenSettingsField" type="hidden" name="action" value="" />
+                <input class="saveSettingsButton button-primary" value="Salvar Ambiente" />
+                <button class="button addAnotherTargetButton">Adicionar Ambiente</button>
+                <button class="button removeTargetButton">Remover Ambiente</button>
+            </p>
+        </div>
+    </div>
+
+</form>
+<div class="postbox box_export_default_static_html">
+
+  <h3 class=""><span><?php echo __('Exportar site HTML', 'static-html-ativo-s3');?></span></h3>
+
+  <div class="inside">
+    <p>
+
+        <div id="progress" style="display:none;">
+            <img src="<?php echo plugins_url('../images/dashinfinity.gif', __FILE__); ?>" />
+        </div>
+
+        <div id="results">
+        </div>
+
+        <p>
+            <i>Selecione o ambiente que deseja Finalizar o HTML e clique em Finalizar HTML</i>
+        </p>
+
+        <p>
+            <select id="nomeAmbiente_generate" name="nomeAmbiente_generate">
+                <?php foreach ($ambientes_config as $ambiente => $n_ambiente) : ?>
+                    <option <?php if('master'==$ambiente){ echo 'selected'; } ?> value="<?php echo $ambiente; ?>" ><?php echo $n_ambiente; ?></option>
+                <?php endforeach; ?>
+            </select>
+        </p>
+
+        <p class="submit">
+            <?php wp_nonce_field($this->onceAction) ?>
+            <input id="generateArchiveButton" class="button-primary" value="GERAR STATIC HTML" />
+            <input type="hidden" id="url_ajax_s3" value="<?php echo site_url().'/wp-admin/admin-ajax.php?action=s3_static_html'; ?>">
+        </p>
+    </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

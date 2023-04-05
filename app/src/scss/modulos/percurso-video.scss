@@ -1,0 +1,454 @@
+$background-card-percurso: #414342;
+$backgroundDeskColor: #333333;
+$backgroundMobileColor: #1e1e1e;
+$corTextoCardLinkPercurso: #fff;
+$corIconCardLinkPercurso: #da1f24;
+$corTituloPercurso: #da1f24;
+$corDestaquePercurso: #85FF58;
+$corHoverAltimetria: #ffffff;
+$corParteCimaPercurso: #333333;
+$corParteBaixoPercurso: #333333;
+$background-imagem-breve: #666;
+$corBordaIcone: #fff;
+
+$backgroundColorHoverCliqueAqui: rgba(74, 115, 155, 0.8);
+
+#percurso{
+    height: auto;
+    width: 100%;
+    padding: 0;
+    >input#abreCardPercurso{
+        display: none;
+    }
+    //Inicio de card link do mobile - some no desk
+    .card-link{
+        height: 150px;
+        width: 100%;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+
+        // padding: 0 53px;
+
+        background: #43A8C6;
+
+        box-shadow: 0px 10px 10px #0000000F;
+        .figure{
+            min-width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            margin-right: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            .svg{
+                height: 75px;
+                width: auto;
+                *{
+					fill: #fff;
+                }
+            }
+        }
+        h2{
+            text-align: left;
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 28px;
+            font-family: $fonte-padrao;
+            letter-spacing: 0px;
+            color: #ffffff;
+            strong, span {
+                color: #DA3718;
+            }
+        }
+    }
+    
+    //Inicio de card content - Mobile
+    .card-content{
+        position: fixed;
+        overflow: auto;
+        overflow-x: hidden;
+        height: calc(100vh - #{$header});
+        padding: 50px 0;
+        width: 100%;
+        background: #fff;
+        top: 100vh;
+        transition: all 0.6s ease-in-out;
+        z-index: 12;
+        opacity: 0;
+        >input{
+            display: none;
+        }
+
+        header {
+            margin-bottom: 20px;
+            .titulos{
+                display: block;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+                h1{
+                    text-align: center;
+                    font-weight: 700;
+                    font-size: 30px;
+                    line-height: 60px;
+                    font-family: $fonte-padrao;
+                    letter-spacing: 0px;
+                    color: #F38F2D;
+                    margin: 0;
+                    padding: 0;
+                    strong, span {
+                        color: #DA3718;
+                    }
+                }
+            }
+
+        }
+
+        .navigation{
+            position: relative;
+            width: 100%;
+            display: flex;
+            z-index: 1;
+            font-family: $fonte-padrao;
+            flex-direction: column;
+            align-items: center;
+            gap: 26px;
+            margin: 0 0 45px;
+            a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                box-sizing: border-box;
+
+                width: 214px;
+                height: 65px;
+                border-radius: 54px;
+
+                text-align: center;
+                font-family: $fonte-padrao;
+                font-size: 18px;
+                line-height: 77px;
+                font-weight: 700;
+                letter-spacing: 0px;
+                color: #FFFFFF;
+
+                background: #43A8C6 ;
+                -webkit-box-shadow: 0px 7px 0px 2px #326190; 
+                box-shadow: 0px 3px 0px 1px #326190;
+                
+                margin: 0;
+                padding: 0;
+            }
+        }
+        .iframes{
+            position: relative;
+            z-index: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+
+            .percursos{
+                >input{
+                    display: none;
+                }
+                .iframe{
+                    height: 300px;
+                    width: 300px;
+                    .imagem-breve{
+                        border-radius: 15px;
+                        width: 100%;
+                        height: 100%;
+                        display: block;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: $background-imagem-breve;
+                        background-size: cover;
+                        background-position: center;
+                    }
+                    // >*{
+                    //     display: none;
+                    //     border: none;
+                    //     margin: 0;
+                    //     overflow: hidden;
+                    // }
+                }
+            }
+            .percursos{
+                .iframe input[type=checkbox]{
+                    display: none;
+                }
+                .iframe{
+                    label.shadow-iframe{
+                        border-radius: 15px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: calc(100% + 5px);
+                        height: calc(100% + 5px);
+                        background: $backgroundColorHoverCliqueAqui;
+                        z-index: 1;
+                        position: absolute;
+                        top: -5px;
+                        left: 0;
+                        cursor: pointer;
+                        transition: all 0.4s ease-in-out;
+                        opacity: 0;
+                        pointer-events: none;
+                        visibility: hidden;
+                        span{
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 10px;
+                            .svg{
+                                width: auto;
+                                height: 50px;
+                                *{
+                                    fill: #fff;
+                                }
+                            }
+                            span{
+                                width: 165px;
+                                display: block;
+                                font-family: $fonte-padrao;
+                                color: #fff;
+                                text-align: center;
+                                font-size: 22px;
+                                line-height: 30px;
+                                text-transform: uppercase;
+                            }
+                        }
+                    }
+                    iframe{
+                        width: 100%;
+                        height: 300px;
+                        border-radius: 15px;
+
+                    }
+                    input[type="checkbox"]:checked ~ label.shadow-iframe{
+                        opacity: 1;
+                        pointer-events: all;
+                        visibility: visible;
+                    }
+                }
+                // >input[type=radio]{
+                //     @for $i from 0 through 5 {
+                //         &#percurso#{$i}:checked ~ .navigation label[for=percurso#{$i}]>span{
+                //             background: #227d99;;
+                //             color: #fff;
+				// 			font-family: $fonte-padrao;
+                //             box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.4); 
+                //             z-index: 1;
+                //         }
+                //         &#percurso#{$i}:checked ~ .iframes >*:nth-child(#{$i+1}),
+                //         &#percurso#{$i}:checked ~ .iframes >*:nth-child(#{$i+1}){
+                //             display: flex;
+                //             height: 300px;
+                //             width: 300px;
+                //             z-index: 0;
+                //         }
+                //         .iframes input#shadow-iframe-#{$i+1} + label{
+                //             display: none;
+                //         }
+                //         .iframes input#shadow-iframe-#{$i+1}:checked + label{
+                //             display: flex;
+                //             width: 100%;
+                //             height: 100%;
+                //             background: rgba(0,0,0,0.7);
+                //             z-index: 6;
+                //             span{
+                //                 display: flex;
+                //                 justify-items: center;
+                //                 flex-direction: column;
+                //                 align-items: center;
+                //                 width: 100%;
+                //                 height: 100%;
+                //                 .svg{
+                //                     width: 40px;
+                //                     height: 40px;
+                //                 }
+                //                 span{
+                //                     color: #fff;
+                //                     font-size: 15px;
+                //                 }
+                //             }
+                //         }
+                //     }
+                // }
+            }
+            // .toggle-view-mode{
+            //     display: flex;
+            //     position: absolute;
+            //     width: 100%;
+            //     height: auto;
+            //     bottom: 0;
+            //     transform: translateY(50%);
+            //     justify-content: center;
+            //     align-items: center;
+            //     z-index: 2;
+            //     label{ 
+            //         cursor: pointer;
+            //         background: $corDestaquePercurso;
+            //         color: #fff;
+            //         width: auto;
+            //         display: flex;
+            //         justify-content: center;
+            //         align-items: center;
+            //         padding: 0 20px;
+            //         text-decoration: none;
+            //         text-transform: uppercase;
+            //         position: relative;
+            //         height: 48px;
+            //         width: 225px;
+            //         line-height: 48px;
+            //         box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.4); 
+            //         box-sizing: border-box;
+            //         span{
+            //             align-items: center;
+            //             justify-content: center;
+            //             font-weight: 800;
+            //             width: auto;
+            //             p{
+            //                 display: inline;
+            //                 font-size: 11px;
+            //                 span{
+            //                     display: inline;
+            //                     font-weight: 400;
+            //                 }
+            //             }
+            //             &.mapa{
+            //                 display: flex;
+            //             }
+            //             &.video{
+            //                 display: none;
+            //             }
+            //             .svg{
+            //                 width: 25px;
+            //                 height: 25px;
+            //                 margin-right: 15px;
+            //                 *{
+            //                     fill: #fff;
+            //                 }    
+            //             }
+            //         }
+            //         &:hover{
+            //             background: $corHoverAltimetria;
+            //             color: #000;
+            //             .svg{
+            //                 *{
+            //                     fill: #000;
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }
+            >#acessaPercurso{
+                display: none;
+            }
+        }
+    }
+    
+    >input#abreCardPercurso:checked ~ .card-content{
+        top: $header;
+        opacity: 1;
+    }
+
+    //Inicio de card content - Desk
+    @media screen and (min-width: $mobile){
+        position: relative;
+        z-index: 0;
+        background: #F0F3EC;
+        padding: 45px 0 0;
+        .card-link{
+            display: none;
+        }
+        .card-content{
+            position: relative;
+            height: auto;
+            top: 0;
+            overflow: hidden;
+            opacity: 1;
+            background: none;
+            padding: 0;
+            .imagem-breve {
+                height: 400px;
+            }
+            header {
+                margin-bottom: 24px;
+                .titulos{
+                    h1{
+                        font-size: 30px;
+                        line-height: 63px;
+                        letter-spacing: 0px;
+                        font-weight: 600;
+                    }
+                }
+            }
+
+            .navigation{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: row;
+                gap: 48px;
+                margin: 0;
+                a {
+                    width: 253px;
+                    height: 65px;
+                    font-size: 22px;
+                    line-height: 56px;
+                    letter-spacing: 0px;
+
+                    transition: all 0.5s ease-in-out;
+                    &:hover {
+                        background: #34628E;
+                    }
+                }
+            }
+
+            .iframes{
+                z-index: 0;
+                margin-top: 85px;
+                display: block;
+                width: 100%;
+                .percursos{
+                    .iframe{
+                        width: 100%;
+                        .imagem-breve{
+                            height: 298px;
+                            width: 100%;
+                            border-radius: 0;
+                        }
+                        iframe{
+                            height: 298px;
+                            width: 100%;
+                            border: none;
+                            position: absolute;
+                            border-radius: 0;
+                        }
+
+                        label.shadow-iframe {
+                            border-radius: 0;
+                            top: 0;
+                            span {
+                                gap: 24px;
+                                span {
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

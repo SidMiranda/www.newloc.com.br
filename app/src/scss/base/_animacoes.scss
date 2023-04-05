@@ -1,0 +1,148 @@
+
+// ENTRADAS
+
+@keyframes entrada-direita{
+    from{
+        opacity: 0;
+        transform: translateX(500px);
+    }to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes entrada-esquerda{
+    from{
+        opacity: 0;
+        transform: translateX(-500px);
+    }to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes entrada-esquerda-center{
+    from{
+        opacity: 0;
+        transform: translate(-500px, -50%);
+    }to{
+        opacity: 1;
+        transform: translate(0, -50%);
+    }
+}
+@keyframes entrada-cima {
+    from{
+        opacity: 0;
+        transform: translateY(-250px);
+    }to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes entrada-baixo {
+    from{
+        opacity: 0;
+        transform: translateY(250px);
+    }to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes entrada-esquerda-menu{
+    from{
+        text-indent: -50px;
+    }to{
+        opacity: 1;
+        text-indent: 0;
+    }
+}
+@keyframes entrada-foto{
+    50%{
+        opacity: 1;
+    }
+}
+@keyframes fadeIn{
+    to{
+        opacity: 1;
+    }
+}
+@keyframes submit {
+    0%{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+    }15%{
+        background: rgba(0,0,0,0.8);
+        opacity: 1;
+    }20%{
+        opacity: 0;
+    }30%{
+        opacity: 1;
+    }40%{
+        opacity: 0;
+    }50%{
+        opacity: 1;
+        width: 50px;
+        height: 50px;
+    }60%{
+        width: 200vw;
+        height: 200vw;
+    }85%{
+        opacity: 1;
+        border-radius: 50%;
+        background: rgba(0,0,0,0.8);
+    }100%{
+        width: 200vw;
+        height: 200vw;
+        opacity: 1;
+        position: absolute;
+        transform: translate(-50%, -50%);
+    }
+}
+@keyframes aparecer-alert {
+    50%{
+        opacity: 0;
+        transform: translate(-50%, calc(-50% + 150px));
+    }63%{
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }85%{
+        opacity: 1;
+    }100%{
+        opacity: 1;
+    }
+}
+@keyframes downloadPlanilhas {
+    from{
+        transform: translate(-50%, calc(-50% - 2.5px));
+    }to{
+        transform: translate(-50%, calc(-50% + 2.5px));
+    }
+}
+@keyframes spin-loader{
+    to{
+        transform: rotate(360deg);
+    }
+}
+@keyframes entrada-bottom{
+    from{
+        transform: translate(-50%, 100px);
+    }to{
+        opacity: 1;
+        transform: translate(-50%, 0px);
+    }
+}
+@keyframes onda{
+    0%{
+        transform: rotateZ(0deg);
+    }100%{
+        transform: rotateZ(360deg);
+    }
+}
+@keyframes onda2{
+    from{
+        transform: rotateZ(360deg);
+    }to{
+        transform: rotateZ(0);
+    }
+}

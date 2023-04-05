@@ -1,0 +1,414 @@
+$backgroundNewsletter: #0b2a49;
+$corTituloNewsletter: #fff;
+$corSubtituloNewsletter: #fff;
+$corDestaqueModuloNewsletter: #fff;
+$corTextoNewsletter: #fff;
+$corBotao: #7dadb4;
+$corTextoBotao: #fff;
+$corBotaoHover: #fff;
+$corTextoBotaoHover: #7dadb4;
+
+#newsletter {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	flex-direction: column;
+	overflow: hidden;
+	box-sizing: border-box;
+	font-family: $fonte-padrao;
+	padding: 3.125rem 0 5rem;
+	background: #F5F5F5;
+	.container {
+		max-width: 71.625rem;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		img {
+			width: 5.9375rem;
+			height: auto;
+		}
+
+		.news {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			h2 {
+				font-family: $fonte-padrao;
+				font-size: 1.375rem;
+				line-height: 1.75rem;
+				font-weight: 600;
+				max-width: 13.75rem;
+				text-align: center;
+				letter-spacing: 0px;
+				color: #34628E;
+				margin: 2.5rem 0;
+			}
+			form {
+				width: 100%;
+				height: auto;
+				display: flex;
+				flex-direction: column;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				* {
+					transition: all 0.3s ease-in-out;
+				}
+				.submit {
+					display: flex;
+					width: 286px;
+					height: 48px;
+					border: 1px solid #707070;
+					border-radius: 31px;
+					margin: 0 auto;
+					> input {
+						width: 80%;
+						height: 48px;
+						margin: 0;
+						border: 0;
+		
+						text-align: left;
+						font: normal normal normal 16px/19px Roboto;
+						font-size: 1rem;
+						line-height: 1.1875rem;
+						letter-spacing: 0px;
+						color: #17263B;
+		
+						font-family: $fonte-secundaria;
+						background: transparent;
+						box-sizing: border-box;
+						outline: none;
+		
+						&::placeholder {
+							color: #17263B;
+						}
+					}
+					button {
+						height: 100%;
+						width: 20%;
+						margin: 0;
+						border: 0;
+						padding: 0;
+						box-sizing: border-box;
+						background: transparent;
+						color: $corTextoNewsletter;
+						text-transform: uppercase;
+						font-weight: 700;
+						font-size: 15px;
+						cursor: pointer;
+						transition: all 0.3s ease-in-out;
+						position: relative;
+						outline: none;
+						z-index: 1;
+						.svg {
+							width: auto;
+							height: 100%;
+							display: inline-flex;
+							margin-right: -10px;
+						}
+						&:hover {
+							color: $corTextoBotaoHover;
+							box-shadow: none;
+						}
+					}
+				}
+				input {
+					width: 309px;
+					height: 45px;
+					margin: 0;
+					border: 0;
+					font-size: 12px;
+					padding-left: 20px;
+					font-weight: 400;
+					font-family: $fonte-secundaria;
+					background: transparent;
+					box-sizing: border-box;
+					outline: none;
+					color: #fff;
+					border: 1px solid #F4F4F4;
+					border-radius: 25px;
+					margin: 0 auto;
+					&::placeholder {
+						color: #fff;
+					}
+				}
+				.alert {
+					position: absolute;
+					left: 50%;
+					top: 50%;
+					transform: translate(-50%, -50%);
+					visibility: hidden;
+					opacity: 0;
+					transition: background 0.3s ease-in-out;
+					text-align: center;
+					color: $corTextoNewsletter;
+					i {
+						font-family: fontAwesomeS;
+						font-size: 70px;
+						margin-right: 10px;
+					}
+					p {
+						font-size: 20px;
+						line-height: 15px;
+						margin: 0;
+						text-transform: uppercase;
+						font-weight: 300;
+						text-align: left;
+						span {
+							font-weight: 900;
+							color: $corDestaqueModuloNewsletter;
+						}
+						strong {
+							display: block;
+							margin-top: 5px;
+							text-transform: uppercase;
+							// font-style: italic;
+							font-size: 41px;
+							font-weight: 900;
+						}
+					}
+					&.success {
+						display: none;
+						i {
+							color: rgba(0, 0, 0, 0);
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							width: 35px;
+							height: 60px;
+							position: relative;
+							transform: rotate(45deg);
+							margin: 0;
+							left: -30px;
+							bottom: 5px;
+							&:before {
+								content: "";
+								width: 35px;
+								height: 15px;
+								background: $corDestaqueModuloNewsletter;
+								position: absolute;
+								left: 0;
+								bottom: 0;
+							}
+							&:after {
+								content: "";
+								width: 60px;
+								height: 15px;
+								background: $corDestaqueModuloNewsletter;
+								position: absolute;
+								left: -2px;
+								top: 20px;
+								transform: rotate(90deg);
+							}
+						}
+					}
+					&.error {
+						display: none;
+						i {
+							color: rgba(0, 0, 0, 0);
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							width: 80px;
+							height: 80px;
+							position: relative;
+							&:after,
+							&:before {
+								content: "";
+								width: 80px;
+								height: 15px;
+								background: $corDestaqueModuloNewsletter;
+								position: absolute;
+								left: 50%;
+								top: 50%;
+								transform: translate(-50%, -50%) rotate(45deg);
+							}
+							&:before {
+								transform: translate(-50%, -50%) rotate(135deg);
+							}
+						}
+					}
+				}
+				&.on {
+					left: 50%;
+					top: 50%;
+					input,
+					button,
+					.submit {
+						opacity: 0;
+					}
+					.alert.success {
+						display: flex;
+						align-items: center;
+						visibility: visible;
+						animation: aparecer-alert 5s ease-in-out forwards 0.3s;
+						p {
+							line-height: 17px;
+						}
+					}
+					.alert.error {
+						p {
+							line-height: 23px;
+						}
+					}
+					animation: submit 5s ease-in-out forwards 0.3s;
+					@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+						position: absolute;
+					}
+				}
+				&.off {
+					left: 50%;
+					top: 60%;
+					input,
+					button,
+					.submit {
+						opacity: 0;
+					}
+					.alert.error {
+						display: flex;
+						align-items: center;
+						visibility: visible;
+						animation: aparecer-alert 5s ease-in-out forwards 0.3s;
+						p {
+							line-height: 15px;
+						}
+					}
+					animation: submit 5s ease-in-out forwards 0.3s;
+					@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+						position: absolute;
+					}
+				}
+			}
+		}
+
+	}
+
+	@media screen and (min-width: $mobile) {
+		
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		padding: 8.75rem 0;
+		border: none;
+
+		.container {
+			max-width: 1146px;
+			flex-direction: row;
+
+			img {
+				height: 159px;
+				width: auto;
+			}
+
+			.news {
+				margin-left: 5.1875rem;
+				h2 {
+					text-align: left;
+					font-size: 1.5625rem;
+					line-height: 1.875rem;
+					font-weight: 600;
+					letter-spacing: 0px;
+					color: #34628E;
+					margin: 0 0 2.25rem;
+					max-width: 24.5rem;
+				}
+
+				form {
+					.submit {
+						width: 368px;
+						height: 60px;
+						border: 1px solid #707070;
+						border-radius: 31px;
+						margin: 0;
+						
+						input {
+							text-align: left;
+							font-size: .9375rem;
+							line-height: 1.125rem;
+							font-weight: 400;
+							letter-spacing: 0px;
+							color: #898989;
+							height: 100%;
+							margin: 0;
+						}
+						button {
+							.svg {
+								margin-right: -15px;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.alert {
+			position: absolute;
+		}
+
+	}
+
+	@keyframes submit {
+		0% {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			position: absolute;
+			transform: translate(-50%, -50%);
+		}
+		15% {
+			background: rgba(0, 0, 0, 0.8);
+			opacity: 1;
+		}
+		20% {
+			opacity: 0;
+		}
+		30% {
+			opacity: 1;
+		}
+		40% {
+			opacity: 0;
+		}
+		50% {
+			opacity: 1;
+			width: 50px;
+			height: 50px;
+		}
+		60% {
+			width: 200vw;
+			height: 200vw;
+		}
+		85% {
+			opacity: 1;
+			border-radius: 50%;
+			background: rgba(0, 0, 0, 0.8);
+		}
+		100% {
+			width: 200vw;
+			height: 200vw;
+			opacity: 1;
+			position: absolute;
+			transform: translate(-50%, -50%);
+		}
+	}
+	@keyframes aparecer-alert {
+		50% {
+			opacity: 0;
+			transform: translate(-50%, calc(-50% + 150px));
+		}
+		63% {
+			opacity: 1;
+			transform: translate(-50%, -50%);
+		}
+		85% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+}

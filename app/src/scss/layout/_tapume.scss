@@ -1,0 +1,294 @@
+// @media screen and (min-width: $mobile) {
+//     body {
+//         overflow: hidden;
+//     }
+// }
+
+#tapume {
+	position: relative;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	width: 100%;
+	height: auto;
+	font-family: $fonte-padrao;
+	padding: 3.75rem 0 25.9375rem;
+	.bgTapume {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		background: #1C3645;
+		img{
+			width: 100%;
+			height: 100%;
+			object-position: center top;
+			object-fit: cover;
+		}
+	}
+
+	.container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+
+		.img-logo-evento {
+			width: 13.625rem;
+			height: auto;
+			margin: 0;
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+	
+		.logo-governo {
+			margin: 3.25rem 0 2.5625rem;
+			width: auto;
+			height: 38px;
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+		.cards{
+			.card{
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				.cidade-data {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					h4{
+						// font: normal normal 800 34px/50px Kanit;
+						text-align: center;
+						font-size: 2.125rem;
+						line-height: 3.125rem;
+						font-weight: 800;
+						letter-spacing: 1.7px;
+						color: #326190;
+						text-transform: uppercase;
+						margin: 0;
+					}
+					p{
+						// font: normal normal 800 21px/31px Kanit;
+						text-align: center;
+						font-size: 1.3125rem;
+						line-height: 1.9375rem;
+						font-weight: 800;
+						letter-spacing: 1.05px;
+						color: #FFFFFF;
+						text-transform: uppercase;
+						margin: 0 0 .9375rem;
+					}
+				}
+				.btn{
+					display: flex;
+					align-items: center;
+					justify-content: center;
+	
+					// font: normal normal bold 18px/33px Kanit;
+
+					font-size: 1.125rem;
+					line-height: 33px;
+					font-weight: 700;
+
+					letter-spacing: 0px;
+					color: #FFFFFF;
+					text-transform: uppercase;
+	
+					width: 13.1875rem;
+					height: 3.25rem;
+					background: #3DA8C8;
+	
+					border-radius: 54px;
+					-webkit-box-shadow: 0px 7px 0px 2px #326190; 
+					box-shadow: 0px 3px 0px 1px #326190;
+					margin-bottom: 2.6875rem;
+				}
+				&:last-child {
+					.btn {
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+	}
+
+
+	@media screen and (min-width: $mobile) {
+		position: relative;
+		height: 100vh;
+		overflow: hidden;
+		box-sizing: border-box;
+		padding: 7.5rem 0 0;
+		.container {
+			flex-direction: row;
+			align-items: flex-start;
+			justify-content: space-between;
+			max-width: 49.8125rem;
+			width: 100vw;
+				
+			.img-logo-evento {
+				width: 19.25rem;
+				height: auto;
+				margin: 0;
+			}
+		
+			.logo-governo {
+				position: absolute;
+				bottom: 3.75rem;
+				left: 50%; 
+				transform: translateX(-50%);
+				
+				width: auto;
+				height: 4.6875rem;
+				
+				margin: 0;
+				padding: 0;
+			}
+			.cards{
+		
+				.card{
+					display: flex;
+					flex-direction: row;
+					align-items: flex-start;
+					.cidade-data {
+						display: flex;
+						flex-direction: column;
+						align-items: flex-start;
+						justify-content: center;
+						margin: 0 2.9375rem 1.5625rem 0;
+						h4{
+							text-align: left;
+							font-size: 1.3125rem;
+							line-height: 1.9375rem;
+							font-weight: 800;
+							letter-spacing: .0656rem;
+							margin: 0;
+							min-width: 10.75rem;
+						}
+						p{
+							text-align: center;
+							font-size: .875rem;
+							line-height: 1.3125rem;
+							letter-spacing: .0437rem;
+							margin: 0;
+							letter-spacing: 0.7px;
+						}
+					}
+					.btn{
+		
+						width: 9.375rem;
+						height: 2.3125rem;
+						font-size: .8125rem;
+	
+						margin: 4px 0 0;
+
+						transition: all 0.5s ease-in-out;
+						&:hover {
+							background: #326190;
+						}
+					}
+					&:last-child {
+						.btn {
+							margin-bottom: 0;
+						}
+					}
+				}
+			}
+		}
+
+	}
+	@media screen and (min-width: $full-hd) {
+		position: relative;
+		height: 100vh;
+		overflow: hidden;
+		box-sizing: border-box;
+		padding: 16.25rem 0 0;
+		.container {
+			flex-direction: row;
+			justify-content: space-between;
+			max-width: 62.8125rem;
+			width: 100vw;
+				
+			.img-logo-evento {
+				width: 24.0625rem;
+				height: auto;
+				margin: 10px 0 0;
+			}
+		
+			.logo-governo {
+				position: absolute;
+				bottom: 10.625rem;
+				left: 50%; 
+				transform: translateX(-50%);
+				
+				width: auto;
+				height: 4.6875rem;
+				
+				margin: 0;
+				padding: 0;
+			}
+			.cards{
+		
+				.card{
+					.cidade-data {
+						margin: 0 2.9375rem 1.5625rem 0;
+						h4{
+							font-size: 2.125rem;
+							line-height: 3.125rem;
+							font-weight: 800;
+							letter-spacing: 1.7px;
+							margin: 0;
+							min-width: 17.75rem;
+						}
+						p{
+							font-size: 1.3125rem;
+							line-height: 1.9375rem;
+							letter-spacing: 1.05px;
+							margin: 0;
+						}
+					}
+					.btn{
+		
+						width: 13.1875rem;
+						height: 3.25rem;
+	
+						margin: 8px 0 0;
+						font-size: 18px;
+						transition: all 0.5s ease-in-out;
+						&:hover {
+							background: #326190;
+						}
+					}
+					&:last-child {
+						.btn {
+							margin-bottom: 0;
+						}
+					}
+				}
+			}
+		}
+
+	}
+
+
+	@keyframes entrada-baixo-tapume {
+		from {
+			opacity: 0;
+			transform: translate(-50%, 100px);
+		}
+
+		to {
+			opacity: 1;
+			transform: translate(-50%, 0);
+		}
+	}
+}

@@ -1,0 +1,38 @@
+#sobreInstitucional{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px 0;
+    width: 100%;
+    background: linear-gradient(to bottom, #291f4b, #1cb0d3);
+    p{
+        font-family: $fonte-padrao;
+        font-size: 16px;
+        line-height: 21px;
+        font-weight: 300;
+        color: #ffffff;
+        text-align: center;
+        max-width: 960px;
+        margin: 0 0 20px;
+        &:last-child{
+            margin: 0;
+        }
+        @media screen and (min-width: $full-hd){
+            font-size: 28px;
+            line-height: 40px;
+            max-width: 1445px;
+        }
+    }
+
+    @media screen and(max-width: $mobile) {
+        padding: 45px 40px;
+        box-sizing: border-box;
+        p {
+            width: auto;
+            font-size: 15px;
+            line-height: 21px;
+            font-weight: 500;
+        }
+    }
+}

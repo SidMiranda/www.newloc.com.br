@@ -1,0 +1,230 @@
+.modal-grupos{
+    position:fixed; 
+    width: 100%;
+    height:100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    background-size: cover;
+    opacity: 0;
+    display: flex;
+    visibility: hidden;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s ease;
+    top: 0;
+    left: 0;
+    z-index: 202;
+    font-family: 'Lato', sans-serif;
+    
+    .content{ 
+        position: relative;
+        z-index: 10; 
+        transition: all 0.4s ease;
+        text-align: center;
+        width: 85%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        h1{
+            color: #fff;
+            font-size: 39px;
+            text-transform: uppercase;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+        h2{
+            font-size: 17px;
+            font-style: italic;
+            color: #cccccc;
+            margin-bottom: 30px;
+        }
+        .conteudo-grupos{
+            background: rgba(243, 243, 243, 0.8);
+            border-radius: 4px;
+            width: 796px;
+            display: flex;
+            flex-direction: row;
+            .titulo{
+                width: 212px;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content:center;
+                i{
+                    font-size: 47px;
+                    color: #82858e;
+                    margin-bottom: 10px;
+                    font-family: fontAwesomeS;
+                }
+                h3{
+                    color: #12182a;
+                    font-size: 25px;
+                    font-style: italic;
+                }
+            }
+            .conteudo{
+                text-align: left;
+                padding: 30px 45px;
+                width: 585px;
+                border-left: 3px solid #101010;
+                box-sizing: border-box;
+                ul{
+                    list-style: none;
+                    font-size: 17px;
+                    color: #323232;
+                    margin: 0;
+                    padding: 0;
+                    li{
+                        margin-bottom: 15px;
+                        i{
+                            color: #10788e;
+                            margin-right: 10px;
+                            font-family: fontAwesomeS;
+                        }
+                    }
+                }
+            }
+            
+        }
+        .aviso{
+            text-transform: uppercase;
+            color: #f3f3f3;
+            width: 70%;
+            margin-top: 20px;
+        }
+        h3{
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .contato{
+            font-size: 30px;
+            color: #fff;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+            span{
+                font-size: 20px;
+                font-style: italic;
+                color: #bfc0c0;
+            }
+            a{
+                color: #bfc0c0;
+                font-size: 30px;
+                font-style: italic;
+                span{
+                    color: #fff;
+                    font-size: 30px;
+                }
+            }
+        }
+        .close-grupos{
+            position: absolute;
+            top: 0;
+            right: 0px;
+            z-index: 11;
+            width: 39px;
+            height: 39px;
+            transition: all .4s ease;
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+            span{          
+                position: absolute;
+                right: 0;
+                top: 7px;
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                cursor: pointer;
+                &:after, &:before{
+                    content: "";
+                    width: 21px;
+                    height: 3px;
+                    background: #fff;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%) rotate(45deg);
+                }
+                &:before{
+                    transform: translate(-50%, -50%) rotate(135deg);
+                }
+            }
+        }
+    }
+    &.on{
+        opacity: 1;
+        visibility: visible;
+    }
+    @media(max-width: 768px){
+        overflow: auto;
+        align-items: flex-start;
+        
+        .content{
+            padding: 15px;
+            h1{
+                font-size: 30px;
+            }
+            h2{
+                font-size: 17px;
+                line-height: 17px;
+            }
+            .conteudo-grupos{
+                width: 100%;
+                padding: 10px 0;
+                display: flex;
+                flex-direction: column;
+                
+                .titulo{
+                    width: 100%;
+                    border-bottom: 3px solid #101010;
+                    i{
+                        font-size: 35px;
+                        font-family: fontAwesomeS;
+                    }
+                    
+                }
+                .conteudo{
+                    padding: 10px 20px;
+                    border-left: none;
+                    width: 100%;
+                    ul{
+                        list-style: none;
+                        font-size: 17px;
+                        color: #323232;
+                        margin: 0;
+                        padding: 0;
+                        li{
+                            margin-bottom: 15px;
+                            i{
+                                color: #10788e;
+                                margin-right: 10px;
+                                font-family: fontAwesomeS;
+                            }
+                        }
+                    }
+                }
+            }
+            .aviso{
+                width: 90%;
+                margin-top: 10px;
+            }
+            h3{
+                margin-bottom: 10px;
+            }
+            .contato{
+                line-height: 32px;
+            }
+            
+            .close-grupos{
+                right: 10px;
+                top: 10px;
+                position: fixed;
+                span {
+                    height: 27px;
+                }
+            }
+        }
+    }
+}

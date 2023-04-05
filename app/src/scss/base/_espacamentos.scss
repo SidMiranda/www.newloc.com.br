@@ -1,0 +1,40 @@
+.padding-section{
+    // CONFERIR
+    &-padrao{
+        padding: 80px 0;
+    }
+    &-secundario{
+        padding: 80px 0 40px;
+    }
+    &-menor{
+        padding: 40px 0;
+    }
+    &-menor2{
+        padding: 40px 0 0;
+    }
+    &-zero{
+        padding: 0;
+    }
+
+    @media screen and (min-width: $mobile){
+        // CONFERIR
+        &-padrao{
+            padding: 80px 0;
+        }
+    
+        &-zero{
+            padding: 0;
+        }
+    }
+
+    @media screen and (min-width: $full-hd){
+        // CONFERIR
+        &-padrao{
+            padding: 80px 0;
+        }
+    
+        &-zero{
+            padding: 0;
+        }
+    }
+}

@@ -1,0 +1,231 @@
+#sobreEvento {
+	width: 100vw;
+	height: auto;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	overflow: hidden;
+	box-sizing: border-box;
+	padding-top: 85px;
+	background-image: linear-gradient(to bottom, #ffffff, #fafbfc, #f5f7fa, #eff3f7, #e8eff4);
+	.containerSobre{
+		width: 100vw;
+		max-width: 1146px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+	.container{
+		max-width: 1146px;
+	}
+	h1 {
+		font-family: $fonte-padrao;
+		font-size: 22px;
+		line-height: 30px;
+		letter-spacing: 1px;
+		color: #F38F2D;
+		text-align: center;
+		font-weight: 400;
+		margin: 0;
+		margin: 0 0 10px 0;
+		font-weight: 600;
+	}
+	.sobre {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		align-items: center;
+		width: 100%;
+		img {
+			border-radius: 14px;
+			width: 251px;
+			height: 290px;
+			object-fit: cover;
+		}
+		.cardEvento {
+			// width: 60%;
+			width: 274px;
+			height: auto;
+			margin: 0 8%;
+			border-radius: 8px;
+			background: #fff;
+			position: relative;
+			top: -105px;
+			padding: 30px;
+			border-radius: 20px;
+			box-sizing: border-box;			
+			p {
+				font-size: 17px;
+				color: #1A3D60;
+				line-height: 26px;
+				text-align: center;
+				font-weight: 400;
+				width: 100%;
+				height: auto;
+				margin-right: 0;
+				margin: 0;
+				font-family: $fonte-padrao;
+			}
+		}
+		.iframe {
+			position: fixed;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			visibility: hidden;
+			transition: all 1s ease-in-out;
+			z-index: 10;
+			&.play {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+		.closeIframe {
+			width: 50px;
+			height: 50px;
+			position: fixed;
+			top: 10%;
+			right: 1%;
+			background: #000;
+			z-index: 15;
+			border-radius: 50%;
+			opacity: 0;
+			visibility: hidden;
+			cursor: pointer;
+			transition: all 1s ease-in-out;
+			&:after,
+			&:before {
+				content: "";
+				width: 22px;
+				height: 4px;
+				background: #fff;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%) rotate(45deg);
+				display: block;
+				position: absolute;
+			}
+			&:after {
+				transform: translate(-50%, -50%) rotate(-45deg);
+			}
+			&.on {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+	.bgMobile {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		overflow: hidden;
+	}
+	@media screen and (min-width: $mobile) {
+		padding: 65px 0 90px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 0;
+		width: 100%;
+		background: #d6eaec;
+		.container{
+			width: 70%;
+		}
+		h1 {
+			font-size: 36px;
+			color: #F67F23;
+			line-height: 38px;
+			letter-spacing: 0;
+			font-family: $fonte-padrao;
+			margin: 0 30px 60px;
+			text-align: center;
+			width: 100%;
+			font-weight: 600;
+			text-transform: uppercase;
+		}
+		.sobre {
+			align-items: flex-start;
+			img {
+				width: 453px;
+				height: 294px;
+				border-radius: 20px;	
+				z-index: 1;
+			}
+			.boxLaranja{
+				background-color: #f38f2d;
+				z-index: 0;
+				width: 361px;
+				height: 291px;
+				position: absolute;
+				left: -3%;
+				top: 6%;
+				border-radius: 20px;
+			}
+			.cardEvento {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				width: 550px;
+				height: 330px;
+				padding: 10px 40px 20px;
+				box-sizing: border-box;
+				left: 56%;
+				top: 50%;
+				transform: translate(0, -50%);
+				border-radius: 20px;
+				position: absolute;
+				// box-shadow: 0px 50px 99px #0000001a;
+				margin: 0;
+				text-align: left;
+				background: transparent;
+				span {
+					line-height: 25px;
+					font-size: 17px;
+					width: 70%;
+					text-align: left;
+					font-family: $fonte-secundaria;
+					color: #1A3D60;
+					p{
+						text-align: left;
+					}
+				}
+			}
+			.iframe {
+				left: 15%;
+				top: 15%;
+				width: 70%;
+				height: 70%;
+			}
+		}
+		.bgMaior {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			bottom: 0;
+			left: 0;
+			z-index: -2;
+		}
+	}
+
+	@media screen and (min-width: $full-hd) {
+		h1 {
+			// margin: 0 30px 20px;
+		}
+		.sobre {
+			// margin-left: 4%;
+			img {
+			}
+			.cardEvento {
+				// left: 85%;
+				p {
+				}
+			}
+		}
+	}
+}

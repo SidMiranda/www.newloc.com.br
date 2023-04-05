@@ -1,0 +1,36 @@
+.header-section{
+    // CONFERIR
+    // margin: 0 0 40px;
+    h1{
+        font-size: 30px;
+        font-weight: 600;
+        font-family: $fonte-padrao;
+    }
+    h2{
+        font-size: 22px;
+        font-weight: 400;
+        font-family: $fonte-padrao; // <- CONFERIR se a fonte sera a mesma do h1
+    }
+
+    @media screen and (min-width: $mobile){
+        // CONFERIR
+        margin: 0 0 40px;
+        h1{
+            font-size: 30px;
+        }
+        h2{
+            font-size: 22px;
+        }
+    }
+
+    @media screen and (min-width: $full-hd){
+        // CONFERIR
+        margin: 0 0 40px; 
+        h1{
+            font-size: 30px;
+        }
+        h2{
+            font-size: 22px;
+        }
+    }
+}
