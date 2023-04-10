@@ -95,7 +95,7 @@
                 <hr class="hidden-xs">
             </div>
         </nav>
-        <a href="<?php echo $linkInscrevase; ?>" class="inscreva-se on" target="_blank">
+        <a href="<?php echo $linkInscrevase; ?>" class="inscreva-se on hidden-lg" target="_blank">
             <span><?php echo $btnInscrevase; ?></span>
         </a>
     </div>

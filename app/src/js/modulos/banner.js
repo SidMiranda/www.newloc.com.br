@@ -29,7 +29,7 @@ if(banner){
             slideBy: 1,
             center: true,
             edgePadding: 0,
-            speed: 600,
+            speed: 850,
             autoplay: true,
             autoplayButtonOutput: false
         });
@@ -44,7 +44,7 @@ if(banner){
             slideBy: 1,
             center: true,
             edgePadding: 0,
-            speed: 600,
+            speed: 850,
             autoplay: true,
             autoplayButtonOutput: false
         });

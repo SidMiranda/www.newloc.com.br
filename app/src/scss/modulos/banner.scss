@@ -74,6 +74,18 @@ section#banner {
 					width: 100%;
 					height: auto;
 				}
+				.first-phrase{
+					text-align: center;
+					font-family: $fonte-padrao;
+					font-size: 29px;
+					line-height: 40px;
+					letter-spacing: 1.45px;
+					text-transform: uppercase;
+					color: #192957;
+					margin: 0;
+					padding: 0;
+					font-weight: 900;
+				}
 				.second-phrase{
 					text-align: center;
 					font-family: $fonte-padrao;
@@ -81,7 +93,7 @@ section#banner {
 					line-height: 40px;
 					letter-spacing: 1.45px;
 					text-transform: uppercase;
-					color: #F59017;
+					color: #38b6ff;
 					margin: 0;
 					padding: 0;
 					font-weight: 900;
@@ -144,6 +156,10 @@ section#banner {
 					.banner-logo{
 						width: 445px;
 					}
+					.first-phrase{
+						font-size: 83px;
+						line-height: 85px;
+					}
 					.second-phrase{
 						font-size: 50px;
 						line-height: 69px;
@@ -159,20 +175,27 @@ section#banner {
 					display: flex;
 					width: 195px;
 					height: 46px;
-					background-color: #43A8C6;
-					color: #fff;
-					justify-content: center;
+					background-color: #fff;
+					color: #192957;
+					justify-content: flex-start;
 					align-items: center;
-					box-shadow: 0 3px 0 #34628E;
+					padding: 0 25px;
+					box-shadow: 0 3px 0 #192957;
 					border-radius: 50px;
-					text-transform: uppercase;
 					font-size: 16px;
-					font-family: $fonte-padrao;
+					font-family: Kanit,sans-serif;
 					font-weight: 700;
 					margin-bottom: 52px;
 					transition: all .3s ease-in-out;
+					box-sizing: border-box;
+					letter-spacing: 2px;
+					gap: 15px;
+					img {
+						height: 35px;
+						width: 35px;
+					}
 					&:hover{
-						background-color: #34628E;
+						// background-color: #34628E;
 					}
 				}
 				.ministry-logo{

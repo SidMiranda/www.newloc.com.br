@@ -65,7 +65,7 @@
                                 <input type="checkbox" id="shadow-iframe" checked>
                                 <label for="shadow-iframe" class="shadow-iframe">
                                     <span>
-                                        <img src="" data-svg="<?php echo $iconToggleMapa; ?>" alt="Pointer" class="svg">
+                                        <!-- <img src="" data-svg="<?php echo $iconToggleMapa; ?>" alt="Pointer" class="svg"> -->
                                         <span><?php echo $textoHover; ?></span>
                                     </span>
                                 </label>
