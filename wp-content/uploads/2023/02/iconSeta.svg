@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Componente_17_10" data-name="Componente 17 – 10" width="60" height="60" viewBox="0 0 60 60">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="60" height="60" fill="none"></rect>
+    </clipPath>
+  </defs>
+  <g id="Repetição_de_grade_11" data-name="Repetição de grade 11" clip-path="url(#clip-path)">
+    <g id="Grupo_5337" data-name="Grupo 5337" transform="translate(-6693 -15935)">
+      <path id="Caminho_2726" data-name="Caminho 2726" d="M30,0A30,30,0,1,1,0,30,30,30,0,0,1,30,0Z" transform="translate(6693 15935)" fill="#43a8c6"></path>
+      <g id="Grupo_5336" data-name="Grupo 5336" transform="translate(6460.821 12082.344)">
+        <path id="Caminho_560" data-name="Caminho 560" d="M148.267,31.569a.752.752,0,0,0,.752.752h20.788l-3.229,3.229a.752.752,0,0,0,1.063,1.063l4.514-4.513a.745.745,0,0,0,.22-.528v0a.767.767,0,0,0-.222-.531l-4.513-4.513a.752.752,0,0,0-1.064,1.063l3.231,3.229H149.019a.752.752,0,0,0-.752.752" transform="translate(101.858 3851.087)" fill="#fff"></path>
+      </g>
+    </g>
+  </g>
+</svg>
