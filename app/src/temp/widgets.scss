@@ -1080,6 +1080,7 @@ section#banner {
 	
 	@media screen and (min-width: $mobile) {
 		height: calc(100vh - 107px);
+		max-height: 550px;
 		margin-top: 107px;
 		margin-bottom: 0;
 		padding-top: 20px;
