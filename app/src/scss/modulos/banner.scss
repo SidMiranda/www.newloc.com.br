@@ -145,7 +145,7 @@ section#banner {
 	}
 	
 	@media screen and (min-width: $mobile) {
-		height: 663px;
+		height: calc(100vh - 107px);
 		margin-top: 107px;
 		margin-bottom: 0;
 		padding-top: 20px;
@@ -230,8 +230,8 @@ section#banner {
 		}
 	}
 
-	// @media screen and (min-width: $full-hd) {
-	// 	height: 783px;
-	// }
+	@media screen and (min-width: $full-hd) {
+		height: 663px;
+	}
 }
 
