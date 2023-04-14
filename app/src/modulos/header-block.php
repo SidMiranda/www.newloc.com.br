@@ -102,7 +102,7 @@
 
     
 </header>
-<div class="inscreva-se mobile">
+<!-- <div class="inscreva-se mobile">
     <a href="<?php echo $linkInscrevase; ?>" target="_blank"><?php echo $btnInscrevase; ?></a>
-</div>
+</div> -->
 <?php } ?>

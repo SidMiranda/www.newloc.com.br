@@ -45,9 +45,9 @@ if ($ativarModulo) {
         <div class="container">
             <div class="content-wrapper">
                 <div class="title-wrapper">
-                    <!-- <img src="<?php echo $imagemTitulo; ?>" class="banner-logo" alt="Esporte é Saúde"> -->
-                    <h2 class="first-phrase"><?php echo $primeiraFraseTitulo; ?></h2>
-                    <h2 class="second-phrase"><?php echo $segundaFraseTitulo; ?></h2>
+                    <img src="<?php echo $imagemTitulo; ?>" class="banner-logo" alt="logoEventoBanner">
+                    <!-- <h2 class="first-phrase"><?php echo $primeiraFraseTitulo; ?></h2>
+                    <h2 class="second-phrase"><?php echo $segundaFraseTitulo; ?></h2> -->
                 </div>
                 <p class="text"><?php echo $textoBanner; ?></p>
                 <a href="<?php echo $linkBotao; ?>" class="subscription-button"><img src="<?php echo $iconWhatsapp; ?>"><?php echo $textoBotao; ?></a>
