@@ -30,13 +30,16 @@
                 ?>
                 <div class="info">
                     <img src="<?php echo $background; ?>" alt="Background Info" class="bg">
-                    <h3 class="hidden-xs"><?php echo $tituloIcons; ?></h3>
+                    <!-- <h3 class="hidden-xs"><?php echo $tituloIcons; ?></h3> -->
                     <div class="hover">
-                        <h3 class="hidden-lg"><?php echo $tituloIcons; ?></h3>
-                        <p><?php echo $texto; ?></p>
+                        <h3><?php echo $tituloIcons; ?></h3>
+                        <?php if ($texto) { ?>
+                            <p><?php echo $texto; ?></p>
+                        <?php } ?>
                     </div>
                 </div>
             <?php } ?>
+            <a href="#" target="_blank" rel="noopener noreferrer">Veja Mais</a>
         </div>
     </section>
 <?php } ?>

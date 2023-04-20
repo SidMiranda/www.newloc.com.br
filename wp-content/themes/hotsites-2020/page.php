@@ -10,6 +10,7 @@ error_reporting(0); ?>
         include 'modulos/banner.php';
         include 'modulos/banner-logos.php';
         include 'modulos/sobre.php';
+        include 'modulos/sobre-esquerda.php';
         include 'modulos/sliderInfo.php';
         include 'modulos/informacoes-2-colunas.php';
         include 'modulos/skate.php';
