@@ -1,0 +1,38 @@
+#compromisso {
+	.bg {
+		img {
+
+		}
+	}
+	.container {
+		.content {
+			h2 {
+	
+			}
+			.redes{
+				img {
+					
+				}
+			}
+		}
+	}
+	@media screen and (min-width: $mobile) {
+		.bg {
+			img {
+	
+			}
+		}
+		.container {
+			.content {
+				h2 {
+		
+				}
+				.redes{
+					img {
+
+					}
+				}
+			}
+		}
+	}
+}

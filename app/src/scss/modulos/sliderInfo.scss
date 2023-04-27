@@ -271,18 +271,18 @@
 		}
 		.container {
 			width: 100%;
-			max-width: 1285px;
+			max-width: 1310px;
 			height: auto;
 			// max-height: 235px;
 			border: 0;
 			display: flex;
 			justify-content: center;
 			flex-wrap: wrap;
-			gap: 50px;
+			gap: 60px;
 			.info {
 				position: relative;
-				width: calc(241px + 120px);
-				height: calc(232px + 120px);
+				width: 280px;
+				height: 280px;
 				box-sizing: border-box;
 				overflow: hidden;
 				padding: 0;
@@ -320,7 +320,7 @@
 					h3 {
 						color: #fff;
 						text-align: center;
-						font-size: 50px;
+						font-size: 35px;
 						line-height: 3.5625rem;
 						font-weight: 400;
 						padding: 20px;
@@ -359,15 +359,15 @@
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				width: 350px;
-				height: 90px;
+				width: 253px;
+				height: 65px;
 				background: #38b6ff;
 				box-shadow: 0 3px 0 1px #192957;
 				color: #fff;
 				transition: all 0.4s ease-in-out;
 				border-radius: 54px;
-				font-size: 38px;
-				margin-top: 50px;
+				font-size: 22px;
+				margin-top: 10px;
 				&:hover {
 					background: #34628e;
 				}

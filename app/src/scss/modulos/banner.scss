@@ -153,14 +153,22 @@ section#banner {
 		box-sizing: border-box;
 		.bgWrapper{
 			height: 100%;
+			#tns1-mw {
+				height: 100%;
+			}
 			.mobile{
 				display: none;
 			}
+			.tns-outer {
+				// padding: 0!important;
+				height: 100%;
+			}
 			.hd{
 				display: flex;
+				height: 100%;
 				img{
 					width: 100vw;
-					height: 663px;
+					height: 100%;
 					object-fit: cover;
 				}
 			}
@@ -233,6 +241,7 @@ section#banner {
 
 	@media screen and (min-width: $full-hd) {
 		height: 663px;
+		max-height: 640px;
 	}
 }
 

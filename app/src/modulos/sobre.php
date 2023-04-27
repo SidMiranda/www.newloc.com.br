@@ -17,24 +17,37 @@
 ?>
     <section id="sobreEvento">
         <div class="containerSobre">
-            <h1 class="hidden-xs"><?php echo $titulo_sobre ?></h1>
             <div class="container">
-                <div class="sobre">
+                <h1 class="hidden-xs"><?php echo $titulo_sobre ?></h1>
+                <div class="sobre esquerda">
                     <img src="<?php echo $background_mobile_sobre ?>" class="hidden-lg" alt="">
-                    <img src="<?php echo $background_desk_sobre ?>" class="hidden-xs" alt="">
-                    <div class="boxLaranja hidden-xs"></div>
+                    <div class="imgs-bg">
+                        <img src="<?php echo $background_desk_sobre ?>" class="hidden-xs" alt="">
+                        <div class="boxLaranja hidden-xs"></div>
+                    </div>
                     <div class="cardEvento">
                         <h1 class="hidden-lg"><?php echo $titulo_sobre ?></h1>
                         <span class="hidden-xs"><?php echo $texto_sobre_o_evento ?></span>
                         <p class="hidden-lg"><?php echo $texto_sobre_o_evento_mobile ?></p>
                     </div>
                 </div>
-                <?php if($faixas_mobile) { ?>
-                    <img src="<?php echo $faixas_mobile ?>" class="bgMobile hidden-lg" alt="">
-                <?php } ?>
-                <?php if($faixas_desk) { ?>
-                    <img src="<?php echo $faixas_desk ?>" class="bgMaior hidden-xs" alt="">
-                <?php } ?>
+            </div>
+        </div>
+        <div class="containerSobre direita">
+            <div class="container">
+                <h1 class="hidden-xs"><?php echo $titulo_sobre ?></h1>
+                <div class="sobre">
+                    <img src="<?php echo $background_mobile_sobre ?>" class="hidden-lg" alt="">
+                    <div class="imgs-bg">
+                        <img src="<?php echo $background_desk_sobre ?>" class="hidden-xs" alt="">
+                        <div class="boxLaranja hidden-xs"></div>
+                    </div>
+                    <div class="cardEvento">
+                        <h1 class="hidden-lg"><?php echo $titulo_sobre ?></h1>
+                        <span class="hidden-xs"><?php echo $texto_sobre_o_evento ?></span>
+                        <p class="hidden-lg"><?php echo $texto_sobre_o_evento_mobile ?></p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

@@ -1,0 +1,24 @@
+#compromisso {
+	.bg {
+		img {
+
+		}
+	}
+	.container {
+		h2 {
+
+		}
+	}
+	@media screen and (min-width: $mobile) {
+		.bg {
+			img {
+	
+			}
+		}
+		.container {
+			h2 {
+	
+			}
+		}
+	}
+}
