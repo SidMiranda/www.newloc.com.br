@@ -54,7 +54,7 @@ include_once("action/options/modulos/newsletter.php");
 include_once("action/options/modulos/rodape-logos.php");
 // include_once("action/options/modulos/video-banner.php");
 include_once("action/options/modulos/sobre.php");
-include_once("action/options/modulos/sobre-esquerda.php");
+include_once("action/options/modulos/compromisso.php");
 include_once("action/options/modulos/sliderInfo.php");
 // include_once("action/options/modulos/galeria.php");
 
