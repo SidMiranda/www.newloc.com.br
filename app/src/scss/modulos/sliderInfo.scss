@@ -94,7 +94,7 @@
 			justify-content: center;
 			height: 19.5625rem;
 			padding-top: 3.8125rem;
-			// background: #4A739B;
+			background: #192957;
 
 
 			h2 {
@@ -341,18 +341,6 @@
 					.hover {
 						opacity: 1;
 					}
-					// p{
-					// 	background: #fff;
-					// 	color: #1D4C7B;
-					// 	padding: 60px 12px;
-					// 	border-radius: 25px;
-					// 	box-sizing: border-box;
-					// }
-					// &:nth-child(even) {
-					// 	.hover {
-					// 		background: #0B2A49;
-					// 	}
-					// }
 				}
 			}
 			a {
@@ -374,26 +362,4 @@
 			}
 		}
 	}
-
-	// @media screen and (min-width: $full-hd) {
-	// 	padding-bottom: 130px;
-	// 	h1 {
-	// 		font-size: 53px;
-	// 	}
-	// 	.container {
-	// 		height: 267px;
-	// 		max-width: 1337px;
-	// 		margin: 0 auto;
-	// 		.info {
-	// 			height: 267px;
-	// 			.icon {
-	// 				height: 50px;
-	// 			}
-	// 			p {
-	// 				font-size: 20px;
-	// 				line-height: 28px;
-	// 			}
-	// 		}
-	// 	}
-	// }
 }

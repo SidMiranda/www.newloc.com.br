@@ -10,8 +10,9 @@ error_reporting(0); ?>
         include 'modulos/banner.php';
         include 'modulos/banner-logos.php';
         include 'modulos/sobre.php';
-        include 'modulos/compromisso.php';
+        include 'modulos/paralax1.php';
         include 'modulos/sliderInfo.php';
+				include 'modulos/paralax2.php';
         include 'modulos/informacoes-2-colunas.php';
         include 'modulos/skate.php';
         include 'modulos/kits-caroussel.php';

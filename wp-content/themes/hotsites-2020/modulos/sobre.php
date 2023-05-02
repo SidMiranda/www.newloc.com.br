@@ -46,7 +46,7 @@
             <div class="container">
                 <h1 class="hidden-xs"><?php echo $titulo_sobre2 ?></h1>
                 <div class="sobre">
-                    <img src="<?php echo $background_mobile_sobr2 ?>" class="hidden-lg" alt="">
+                    <img src="<?php echo $background_mobile_sobre2 ?>" class="hidden-lg" alt="">
                     <div class="imgs-bg">
                         <img src="<?php echo $background_desk_sobre2 ?>" class="hidden-xs" alt="">
                         <div class="boxLaranja hidden-xs"></div>

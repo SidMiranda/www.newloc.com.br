@@ -3,12 +3,12 @@ if( function_exists('acf_add_local_field_group') ):
 
     acf_add_local_field_group(array (
         'key' => 'group_5eb450d5f23dsdadsa36dd',
-        'title' => 'Compromisso Paralax',
+        'title' => 'Paralax',
         'fields' => array (
             array (
                 'key' => 'field_5ca75f0cbdasds24sd130a',
                 'label' => 'Ativar módulo',
-                'name' => 'ativarCompromisso',
+                'name' => 'ativarParalax',
                 'type' => 'true_false',
                 'value' => NULL,
                 'instructions' => '',
@@ -25,43 +25,11 @@ if( function_exists('acf_add_local_field_group') ):
                 'ui_on_text' => '',
                 'ui_off_text' => '',
             ),
-            array (
-                'key' => 'field_5eb450deb0asdasd1asdasd58',
-                'label' => 'Background Mobile',
-                'name' => 'bgCompromissoMobile',
-                'type' => 'image',
-                'value' => NULL,
-                'instructions' => 'Formato png.',
-                'required' => 0,
-                'conditional_logic' => array (
-                    array (
-                        array (
-                            'field' => 'field_5ca75f0cbdasds24sd130a',
-                            'operator' => '==',
-                            'value' => '1',
-                        ),
-                    ),
-                ),
-                'wrapper' => array (
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'return_format' => 'url',
-                'preview_size' => 'thumbnail',
-                'library' => 'all',
-                'min_width' => '',
-                'min_height' => '',
-                'min_size' => '',
-                'max_width' => '',
-                'max_height' => '',
-                'max_size' => '',
-                'mime_types' => '',
-            ),
+            
             array (
                 'key' => 'field_5eb4adas51sadadsaaeb015c',
-                'label' => 'Background Desk',
-                'name' => 'bgCompromissoDesk',
+                'label' => 'Background',
+                'name' => 'bgParalax',
                 'type' => 'image',
                 'value' => NULL,
                 'instructions' => 'Formato png.',
@@ -92,9 +60,9 @@ if( function_exists('acf_add_local_field_group') ):
                 'mime_types' => '',
             ),
             array (
-                'key' => 'field_5eb4511db02asdas313f159',
-                'label' => 'Titulo',
-                'name' => 'textoModuloCompromisso',
+                'key' => 'field_5eb4511d662asdas313f159',
+                'label' => 'Titulo1',
+                'name' => 'textoModuloParalax1',
                 'type' => 'text',
                 'value' => NULL,
                 'instructions' => '',
@@ -119,6 +87,34 @@ if( function_exists('acf_add_local_field_group') ):
                 'append' => '',
                 'maxlength' => '',
             ),
+						array (
+							'key' => 'field_5eb45444fffasdas313f159',
+							'label' => 'Titulo2',
+							'name' => 'textoModuloParalax2',
+							'type' => 'text',
+							'value' => NULL,
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => array (
+									array (
+											array (
+													'field' => 'field_5ca75f0cbdasds24sd130a',
+													'operator' => '==',
+													'value' => '1',
+											),
+									),
+							),
+							'wrapper' => array (
+									'width' => '',
+									'class' => '',
+									'id' => '',
+							),
+							'default_value' => '',
+							'placeholder' => '',
+							'prepend' => '',
+							'append' => '',
+							'maxlength' => '',
+					),
         ),
         'location' => array (
             array (
