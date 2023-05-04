@@ -39,7 +39,9 @@
                     </div>
                 </div>
             <?php } ?>
-            <a href="#" target="_blank" rel="noopener noreferrer">Veja Mais</a>
+            <a class="hidden-lg" href="#" target="_blank" rel="noopener noreferrer">Veja Mais</a>
         </div>
+				<a class="hidden-xs" href="#" target="_blank" rel="noopener noreferrer">Veja Mais</a>
+
     </section>
 <?php } ?>
