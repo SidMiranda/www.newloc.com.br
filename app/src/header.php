@@ -23,6 +23,8 @@
 	<!-- FAVICON -->
 	<?php 
 		$favicon = get_field('faviconTapume', 'option');
+
+		$iconWhatsapp = get_field("iconWhatsapp", $post->ID);
 	?>
 
 	<link rel="icon" sizes="192x192" href="<?php echo $favicon; ?>">
@@ -45,6 +47,6 @@
 		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<!-- End Google Tag Manager (noscript) -->
 	
-	<a href="https://api.whatsapp.com/send?phone=5511981349241" style="position:fixed;bottom:55px;right:55px;z-index:1000; padding:15px; background-color:#25d366; color:#fff; border-radius:50px; text-align:center; box-shadow: 1px 1px 2px #888; z-index: 1000;" target="_blank">
-			<img src="https://adrianasantospsicologa.com.br/ico/icon-whatsapp.svg" style="width:35px; height:35px;"/>
-		</a>
+	<a href="https://api.whatsapp.com/send?phone=5511981349241" style="position:fixed; bottom:55px; right:55px; z-index: 1000;" target="_blank">
+		<img src="<?php echo $iconWhatsapp; ?>" style="width:60px; height:60px;"/>
+	</a>

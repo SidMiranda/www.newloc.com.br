@@ -1,23 +1,5 @@
 <?php 
 
-$uri = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-$wp_login_uri = "wp-login";
-$wp_admin_uri = "wp-admin";
-$production_uri = str_replace(site_url(), get_option('replace_url_rlout'), $uri);
-
-if(empty($_GET['timestamp'])){
-	if(!is_user_logged_in()){
-		if(strpos($uri, $wp_admin_uri) !== false || strpos($uri, $wp_login_uri) !== false){
-			//Possui WP-ADMIN ou WP-LOGIN
-		}else{
-			$headerLocation = "Location: {$production_uri}";
-			header("HTTP/1.1 301 Moved Permanently");
-			header($headerLocation); 
-			exit();
-		}
-	}
-}
-
 include_once("action/options/functions.php");
 include_once("action/options/campos.php");
 include_once("action/options/regulamento.php");
