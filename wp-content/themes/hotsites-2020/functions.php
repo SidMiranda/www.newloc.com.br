@@ -38,7 +38,7 @@ include_once("action/options/modulos/rodape-logos.php");
 include_once("action/options/modulos/sobre.php");
 include_once("action/options/modulos/paralax.php");
 include_once("action/options/modulos/sliderInfo.php");
-// include_once("action/options/modulos/galeria.php");
+include_once("action/options/modulos/produtos.php");
 
 //Conteudo personalisado dos módulos
 include_once("action/options/api/postagens.php");

@@ -10,6 +10,7 @@ error_reporting(0); ?>
         include 'modulos/banner.php';
         include 'modulos/banner-logos.php';
         include 'modulos/sobre.php';
+				include 'modulos/produtos.php';
         include 'modulos/paralax1.php';
         include 'modulos/sliderInfo.php';
 				include 'modulos/paralax2.php';
