@@ -41,11 +41,6 @@
 		})(window,document,'script','dataLayer','GTM-MSZJ2K');</script>
 	<!-- End Google Tag Manager -->
 </head>
-<script>
-  if (window.location.href.includes("/produtos")) {
-    document.querySelector('.content-wrapper').style.display = 'none';
-  }
-</script>
 <body <?php body_class(); ?>>
 	<!-- Google Tag Manager (noscript) -->
 		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MSZJ2K"
